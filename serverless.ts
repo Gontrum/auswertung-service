@@ -23,13 +23,21 @@ const serverlessConfiguration: Serverless = {
   },
   frameworkVersion: '2',
   custom: {
+    customDomain: {
+      domainName: 'auswertungapi.gontrum.dev',
+      certificateName: '*.gontrum.dev',
+      stage: 'dev',
+      endpointType: 'regional',
+      createRoute53Record: true,
+      basePath: ''
+    },
     webpack: {
       webpackConfig: './webpack.config.js',
       includeModules: true
     }
   },
   // Add the serverless-webpack plugin
-  plugins: ['serverless-webpack'],
+  plugins: ['serverless-webpack', 'serverless-domain-manager'],
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',
