@@ -19,7 +19,7 @@ const corsConfiguration = {
 
 const serverlessConfiguration: Serverless = {
   service: {
-    name: 'restrictedlambda'
+    name: 'auswertung-service'
   },
   frameworkVersion: '2',
   custom: {
