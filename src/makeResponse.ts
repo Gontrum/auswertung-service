@@ -28,3 +28,16 @@ export const makeErrorResponse = (err: any, message?: any) => {
     }
     return makeResponse(500, message)
 }
+
+export const makePlaintextResponse = (message: string): APIGatewayProxyResult => {
+    return {
+        statusCode: 200,
+        headers: {
+            'Content-Type': 'text/plain',
+            'Content-Encoding': 'UTF-8',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true
+        },
+        body: message
+    }
+}
